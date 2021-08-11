@@ -1,8 +1,9 @@
-const User = require("../models/user.model");
-const Item = require("../models/item.model");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+
 const { welcome } = require("../utils/mailer");
+const User = require("../models/user.model");
+const Item = require("../models/item.model");
 
 module.exports = {
   async list(req, res) {

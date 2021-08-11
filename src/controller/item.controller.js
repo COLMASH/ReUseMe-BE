@@ -14,7 +14,10 @@ module.exports = {
   async show(req, res) {
     try {
       const { userId } = req;
-      const item = await Item.find({ creator: userId });
+      const item = await Item.find({ creator: userId }).populate({
+        path: "messages",
+        populate: { path: "creator" },
+      });
       res.status(200).json(item);
     } catch (error) {
       res.status(404).json({ message: error.message });

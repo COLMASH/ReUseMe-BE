@@ -46,7 +46,8 @@ module.exports = {
 
   async create(req, res) {
     try {
-      const { body, userId, itemId } = req;
+      const { itemId } = req.body;
+      const { body, userId } = req;
       const user = await User.findById(userId);
       if (!user) {
         throw new Error("El usuario no existe");
