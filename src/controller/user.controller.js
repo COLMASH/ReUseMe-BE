@@ -97,7 +97,7 @@ module.exports = {
       const { itemId } = req.body;
       const { userId } = req;
       let userInit = await User.findById(userId);
-      if (userInit.items.includes(itemId)) {
+      if (userInit.suscribedItems.includes(itemId)) {
         res.status(200).json("already");
       } else {
         await User.updateOne(
