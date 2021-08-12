@@ -24,6 +24,16 @@ module.exports = {
     }
   },
 
+  async showSuscribed(req, res) {
+    try {
+      const { userId } = req;
+      const user = await User.findById(userId).populate("suscribedItems");
+      res.status(200).json(user);
+    } catch (error) {
+      res.status(404).json({ message: error.message });
+    }
+  },
+
   async update(req, res) {
     try {
       const { itemId } = req.body;
