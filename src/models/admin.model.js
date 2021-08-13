@@ -11,10 +11,6 @@ const adminSchema = new Schema(
       type: String,
       required: [true, "El nombre es requerido"],
     },
-    lastname: {
-      type: String,
-      required: [true, "El apellido es requerido"],
-    },
     email: {
       type: String,
       required: [true, "El campo email es requerido"],

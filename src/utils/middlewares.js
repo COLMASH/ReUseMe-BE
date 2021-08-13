@@ -91,9 +91,6 @@ exports.adminFilter = (req, res, next) => {
   if (req.body.name === "") {
     delete req.body.name;
   }
-  if (req.body.lastname === "") {
-    delete req.body.lastname;
-  }
   if (req.body.phone === "") {
     delete req.body.phone;
   }
@@ -103,9 +100,6 @@ exports.adminFilter = (req, res, next) => {
 exports.userFilter = (req, res, next) => {
   if (req.body.name === "") {
     delete req.body.name;
-  }
-  if (req.body.lastname === "") {
-    delete req.body.lastname;
   }
   if (req.body.phone === "") {
     delete req.body.phone;

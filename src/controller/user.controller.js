@@ -81,7 +81,6 @@ module.exports = {
         token,
         user: {
           name: user.name,
-          lastname: user.lastname,
           email: user.email,
           phone: user.phone,
           profilePicture: user.profilePicture,

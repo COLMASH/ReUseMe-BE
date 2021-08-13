@@ -32,7 +32,6 @@ module.exports = {
       res.status(200).json({
         id: admin.id,
         name: admin.name,
-        lastname: admin.lastname,
         email: admin.email,
         phone: admin.phone,
         profilePicture: admin.profilePicture,
