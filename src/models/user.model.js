@@ -10,10 +10,6 @@ const userSchema = new Schema(
       type: String,
       required: [true, "El campo nombre es requerido"],
     },
-    lastname: {
-      type: String,
-      required: [true, "El campo apellido es requerido"],
-    },
     email: {
       type: String,
       required: [true, "El campo email es requerido"],
