@@ -4,15 +4,15 @@ const itemSchema = new Schema(
   {
     title: {
       type: String,
-      required: [true, "El titulo es requerido."],
+      required: [true, "'Title' field is required"],
     },
     category: {
       type: String,
-      required: [true, "La categoría es requerida."],
+      required: [true, "'Category' field is required"],
     },
     price: {
       type: Number,
-      required: [true, "El precio es requerido."],
+      required: [true, "'Price' field is required"],
     },
     creator: {
       type: Schema.Types.ObjectId,

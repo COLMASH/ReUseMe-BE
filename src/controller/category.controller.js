@@ -7,7 +7,7 @@ module.exports = {
       const category = await Category.create(body);
       res.status(201).json(category);
     } catch (error) {
-      res.status(400).json("Error registrando una categoría");
+      res.status(400).json("Error during category registration");
     }
   },
 
@@ -26,7 +26,7 @@ module.exports = {
       const category = await Category.findByIdAndDelete(categoryId);
       res.status(200).json(category);
     } catch (err) {
-      res.status(400).json({ message: "Error eliminando los datos" });
+      res.status(400).json({ message: "Error during data deletion" });
     }
   },
 };

@@ -4,7 +4,7 @@ const messageSchema = new Schema(
   {
     content: {
       type: String,
-      required: [true, "El mensaje es requerido"],
+      required: [true, "'Message' field is required"],
     },
     creator: {
       type: Schema.Types.ObjectId,

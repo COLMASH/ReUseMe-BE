@@ -8,12 +8,16 @@ const userSchema = new Schema(
   {
     name: {
       type: String,
-      required: [true, "El campo nombre es requerido"],
+      required: [true, "'Name' field is required"],
+    },
+    lastname: {
+      type: String,
+      required: [true, "'Last Name' field is required"],
     },
     email: {
       type: String,
-      required: [true, "El campo email es requerido"],
-      match: [emailRegex, "Email invalido"],
+      required: [true, "'email' field is required"],
+      match: [emailRegex, "invalid email"],
       validate: [
         {
           validator(email) {
@@ -23,17 +27,17 @@ const userSchema = new Schema(
               })
               .catch(() => false);
           },
-          message: "El correo está en uso",
+          message: "email is already in use",
         },
       ],
     },
     phone: {
       type: String,
-      required: [true, "El campo teléfono es requerido"],
+      required: [true, "'Phone' field is required"],
     },
     password: {
       type: String,
-      required: [true, "El campo contraseña es requerido"],
+      required: [true, "'Password' field is required"],
     },
     profilePicture: {
       type: String,

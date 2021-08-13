@@ -33,7 +33,7 @@ app.use("/category", categoryRouter);
 app.use("/message", messageRouter);
 
 app.get("/", auth, (req, res) => {
-  res.status(200).json({ message: "estás autenticado" });
+  res.status(200).json({ message: "you are authenticated" });
 });
 
 app.listen(port, () => {

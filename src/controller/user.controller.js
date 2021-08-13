@@ -67,11 +67,11 @@ module.exports = {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw new Error("Contraseña o correo invalido");
+        throw new Error("Invalid password or email");
       }
       const isValid = await bcrypt.compare(password, user.password);
       if (!isValid) {
-        throw new Error("Contraseña o correo invalido");
+        throw new Error("Invalid password or email");
       }
       const token = jwt.sign({ userId: user._id }, process.env.SECRET, {
         expiresIn: 60 * 60 * 24 * 365,
@@ -81,6 +81,7 @@ module.exports = {
         token,
         user: {
           name: user.name,
+          lastname: user.lastname,
           email: user.email,
           phone: user.phone,
           profilePicture: user.profilePicture,
@@ -127,17 +128,4 @@ module.exports = {
       res.status(400).json({ message: error.message });
     }
   },
-
-  // async showWods(req, res) {
-  //   try {
-  //     const { userId } = req;
-  //     const user = await User.findById(userId).populate({
-  //       path: "wods",
-  //       populate: { path: "creator", model: "Coach" },
-  //     });
-  //     res.status(200).json(user);
-  //   } catch (error) {
-  //     res.status(404).json({ message: error.message });
-  //   }
-  // },
 };

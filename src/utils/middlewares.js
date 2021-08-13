@@ -7,13 +7,13 @@ exports.auth = (req, res, next) => {
     const { authorization } = req.headers;
 
     if (!authorization) {
-      throw new Error("Su sesión expiró");
+      throw new Error("Your session expired");
     }
 
     const [_, token] = authorization.split(" ");
 
     if (!token) {
-      throw new Error("Su sesión expiró");
+      throw new Error("Your session expired");
     }
 
     const { userId, adminId } = jwt.verify(token, process.env.SECRET);
@@ -91,6 +91,9 @@ exports.adminFilter = (req, res, next) => {
   if (req.body.name === "") {
     delete req.body.name;
   }
+  if (req.body.lastname === "") {
+    delete req.body.lastname;
+  }
   if (req.body.phone === "") {
     delete req.body.phone;
   }
@@ -100,6 +103,9 @@ exports.adminFilter = (req, res, next) => {
 exports.userFilter = (req, res, next) => {
   if (req.body.name === "") {
     delete req.body.name;
+  }
+  if (req.body.lastname === "") {
+    delete req.body.lastname;
   }
   if (req.body.phone === "") {
     delete req.body.phone;

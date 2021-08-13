@@ -50,7 +50,7 @@ module.exports = {
       const { body, userId } = req;
       const user = await User.findById(userId);
       if (!user) {
-        throw new Error("El usuario no existe");
+        throw new Error("User does not exist");
       }
       const message = await Message.create({
         ...body,

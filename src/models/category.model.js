@@ -4,7 +4,7 @@ const categorySchema = new Schema(
   {
     categoryName: {
       type: String,
-      required: [true, "El nombre de la categoría es requerido"],
+      required: [true, "'Category Name' field is required"],
     },
   },
   {
