@@ -16,10 +16,9 @@ exports.auth = (req, res, next) => {
       throw new Error("Your session expired");
     }
 
-    const { userId, adminId } = jwt.verify(token, process.env.SECRET);
+    const { userId } = jwt.verify(token, process.env.SECRET);
 
     req.userId = userId;
-    req.adminId = adminId;
 
     next();
   } catch (error) {
@@ -85,19 +84,6 @@ exports.formData = (req, res, next) => {
   });
 
   req.pipe(busboy);
-};
-
-exports.adminFilter = (req, res, next) => {
-  if (req.body.name === "") {
-    delete req.body.name;
-  }
-  if (req.body.lastname === "") {
-    delete req.body.lastname;
-  }
-  if (req.body.phone === "") {
-    delete req.body.phone;
-  }
-  next();
 };
 
 exports.userFilter = (req, res, next) => {
