@@ -9,16 +9,16 @@ const adminSchema = new Schema(
   {
     name: {
       type: String,
-      required: [true, "El nombre es requerido"],
+      required: [true, "'Name' field is required"],
     },
     lastname: {
       type: String,
-      required: [true, "El apellido es requerido"],
+      required: [true, "'Last Name' field is required"],
     },
     email: {
       type: String,
-      required: [true, "El campo email es requerido"],
-      match: [emailRegex, "El email no es válido"],
+      required: [true, "'email' field is required"],
+      match: [emailRegex, "invalid email"],
       validate: [
         {
           validator(email) {
@@ -26,17 +26,17 @@ const adminSchema = new Schema(
               .then((admin) => !admin)
               .catch(() => false);
           },
-          message: "El correo ya está en uso",
+          message: "email is already in use",
         },
       ],
     },
     phone: {
       type: String,
-      required: true,
+      required: [true, "'Phone' field is required"],
     },
     password: {
       type: String,
-      required: [true, "La contraseña es requerida"],
+      required: [true, "'Password' field is required"],
     },
     profilePicture: {
       type: String,

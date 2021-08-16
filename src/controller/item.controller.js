@@ -61,7 +61,7 @@ module.exports = {
       const { body, userId } = req;
       const user = await User.findById(userId);
       if (!user) {
-        throw new Error("El usuario no existe");
+        throw new Error("User does not exist");
       }
       const item = await Item.create({ ...body, creator: userId });
       await User.updateOne({ _id: userId }, { $addToSet: { items: item._id } });
