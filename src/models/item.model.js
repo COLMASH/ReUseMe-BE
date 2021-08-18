@@ -26,21 +26,9 @@ const itemSchema = new Schema(
     messages: {
       type: [{ type: Schema.Types.ObjectId, ref: "Message" }],
     },
-    picture1: {
-      type: String,
-      default:
-        "https://res.cloudinary.com/mashcol/image/upload/v1628703215/reuseme-images/imageIcon_rh1fag.png",
-    },
-    picture2: {
-      type: String,
-      default:
-        "https://res.cloudinary.com/mashcol/image/upload/v1628703215/reuseme-images/imageIcon_rh1fag.png",
-    },
-    picture3: {
-      type: String,
-      default:
-        "https://res.cloudinary.com/mashcol/image/upload/v1628703215/reuseme-images/imageIcon_rh1fag.png",
-    },
+    picture1: String,
+    picture2: String,
+    picture3: String,
     location: String,
   },
   {
