@@ -55,7 +55,16 @@ module.exports = {
       });
       await welcome(user);
 
-      res.status(201).json({ token });
+      res.status(201).json({
+        token,
+        user: {
+          name: user.name,
+          lastname: user.lastname,
+          email: user.email,
+          phone: user.phone,
+          profilePicture: user.profilePicture,
+        },
+      });
     } catch (error) {
       res.status(400).json({ message: error.message });
     }
