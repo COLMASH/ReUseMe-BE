@@ -29,7 +29,8 @@ const itemSchema = new Schema(
     picture1: String,
     picture2: String,
     picture3: String,
-    location: String,
+    longitude: String,
+    latitude: String,
   },
   {
     timestamps: true,
