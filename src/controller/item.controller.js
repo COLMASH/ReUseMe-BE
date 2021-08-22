@@ -50,6 +50,7 @@ module.exports = {
     try {
       const { itemId } = req.body;
       const item = await Item.findByIdAndDelete(itemId);
+      console.log(item);
       res.status(200).json(item);
     } catch (error) {
       res.status(400).json({ message: error.message });
