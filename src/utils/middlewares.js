@@ -85,39 +85,3 @@ exports.formData = (req, res, next) => {
 
   req.pipe(busboy);
 };
-
-exports.userFilter = (req, res, next) => {
-  if (req.body.name === "") {
-    delete req.body.name;
-  }
-  if (req.body.lastname === "") {
-    delete req.body.lastname;
-  }
-  if (req.body.phone === "") {
-    delete req.body.phone;
-  }
-  next();
-};
-
-exports.itemFilter = (req, res, next) => {
-  if (req.body.title === "") {
-    delete req.body.title;
-  }
-  if (req.body.category === "") {
-    delete req.body.category;
-  }
-  if (req.body.price === "") {
-    delete req.body.price;
-  }
-  if (req.body.description === "") {
-    delete req.body.description;
-  }
-  next();
-};
-
-exports.messageFilter = (req, res, next) => {
-  if (req.body.content === "") {
-    delete req.body.content;
-  }
-  next();
-};
