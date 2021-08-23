@@ -22,22 +22,11 @@ module.exports = {
     }
   },
 
-  async update(req, res) {
-    try {
-      const { messageId } = req.body;
-      const message = await Message.findByIdAndUpdate(messageId, req.body, {
-        new: true,
-      });
-      res.status(200).json(message);
-    } catch (error) {
-      res.status(400).json({ errorMessage: error.message });
-    }
-  },
-
   async destroy(req, res) {
     try {
       const { messageId } = req.body;
       const message = await Message.findByIdAndDelete(messageId);
+      console.log(message);
       res.status(200).json(message);
     } catch (error) {
       res.status(400).json({ errorMessage: error.message });
