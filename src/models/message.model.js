@@ -2,7 +2,7 @@ const { Schema, model, models } = require("mongoose");
 
 const messageSchema = new Schema(
   {
-    content: {
+    message: {
       type: String,
       required: [true, "'Message' field is required"],
     },
