@@ -18,7 +18,10 @@ module.exports = {
   async show(req, res) {
     try {
       const { userId } = req;
-      const user = await User.findById(userId);
+      const user = await User.findById(userId).populate({
+        path: "suscribedItems",
+        populate: { path: "creator" },
+      });
       res.status(200).json(user);
     } catch (error) {
       res.status(400).json({ message: error.message });
